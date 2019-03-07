@@ -1,5 +1,17 @@
 # buy-me-a-coffee
 
+## Config Object
+
+``` javascript
+{
+    name: 'creator',
+    address: '0x7567d83b7b8d80addcb281a71d54fc7b3364ffed',
+    message: 'thank you for backing me up',
+    ticker: 'VET',
+    price: 200
+}
+```
+
 ## Project setup
 ```
 npm install
