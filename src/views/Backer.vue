@@ -1,22 +1,23 @@
 <template>
   <div class="backer container">
         <div class="columns">
-            <div class="column col-10 col-mx-auto">
+            <div class="column col-10 col-mx-auto col-md-11 col-xl-8">
                 <div class="columns">
-                    <div class="column col-4">
+                    <div class="column col-4 col-md-12">
                         <div class="cup">
                             <p class="to">TO:</p>
                             <p class="name">{{name}}</p>
                         </div>
                     </div>
-                    <div class="column col-8">
+                    
+                    <div class="column col-8 col-md-12 main">
                         <div class="columns">
-                            <div class="column col-12">
+                            <div class="column col-12 message">
                                 <p class="text-light">"{{message}}"</p>
                             </div>
                             <div class="column col-12 coffee-options">
                                 <div class="columns">
-                                    <div class="column col-3">
+                                    <div class="column col-4">
                                         <div class="coffee-box" :class="{selected: selected == 0}" @click="selected=0">
                                             <div class="coffee">
                                                 <img src="../assets/1.svg" alt="buy 1 coffee">
@@ -24,7 +25,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="column col-3">
+                                    <div class="column col-4">
                                         <div class="coffee-box" :class="{selected: selected == 1}" @click="selected=1">
                                             <div class="coffee">
                                                 <img src="../assets/2.svg" alt="buy 1 coffee">
@@ -32,7 +33,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="column col-3">
+                                    <div class="column col-4">
                                         <div class="coffee-box" :class="{selected: selected == 2}" @click="selected=2">
                                             <div class="coffee">
                                                 <img src="../assets/3.svg" alt="buy 1 coffee">
@@ -42,7 +43,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="column col-12">
+                            <div class="column col-12 button">
                                 <div class="btn-support" @click="supportMe">Support</div>
                             </div>
                         </div>
@@ -116,28 +117,42 @@ export default class Backer extends Vue {
 <style>
 .backer{
     margin-top: 10%;
+    max-width: 1100px;
 }
 
 .cup {
     background: url("../assets/coffee.svg");
-    height: 475px;
-    width: 200px;
+    height: 403px;
+    width: 170px;
     margin: auto;
 }
 
 .cup .to{
     position: relative;
-    top: 300px;
-    left: 30px;
+    top: 225px;
+    left: 20px;
+    margin-bottom: 0;
 }
 
 .cup .name{
     position: relative;
-    top: 280px;
-    left: 30px;
-    width: 138px;
+    top: 240px;
+    left: 20px;
+    width: 128px;
     text-align: center;
     overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.main {
+    margin-top: 8%
+}
+
+.message p{
+    font-size: 1.5rem;
+    margin: 1rem  auto 1.5rem auto;
+    line-height: 1.25;
 }
 
 .coffee-box {
@@ -145,7 +160,7 @@ export default class Backer extends Vue {
     cursor: pointer;
     border: 1px solid #FFF5E3;
     border-radius: 10px;
-    width: 130px;
+    max-width: 130px;
     height: 130px;
     justify-content: center;
     align-items: center;
@@ -169,7 +184,12 @@ export default class Backer extends Vue {
     border : none
 }
 
+.button{
+    margin-top: 1 rem
+}
+
 .btn-support {
+    margin-top: 1rem;
     cursor: pointer;
     background: #FFF5E3;
     color: #8A6F46; 
@@ -178,7 +198,38 @@ export default class Backer extends Vue {
     text-decoration: none;
     width: 180px;
     height: 40px;
-    border-radius: 17px;
+    border-radius: 20px;
     font-size: 1.25rem;
+    margin: 2rem auto 2rem auto;
+}
+
+@media (max-width: 840px){
+    .backer{
+        margin-top: 0;
+    }
+    .message{
+        max-width: 600px !important;
+        margin: auto;
+    }
+    .coffee-options .columns{
+        max-width: 540px;
+        margin: auto;
+    }
+    .coffee-box {
+        margin: auto;
+        width: 110px;
+        height: 110px;
+    }
+    .coffee-box img{
+        height:50px
+    }
+    .message p{
+        text-align: center;
+        font-size: 1rem;
+    }
+    .btn-support {
+        font-size: 1rem;
+        line-height: 40px;
+    }
 }
 </style>
