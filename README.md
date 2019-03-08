@@ -5,10 +5,10 @@
 ``` javascript
 {
     name: 'creator',
-    address: '0x7567d83b7b8d80addcb281a71d54fc7b3364ffed',
-    message: 'thank you for backing me up',
-    ticker: 'VET',
-    price: 200
+    addr: '0x7567d83b7b8d80addcb281a71d54fc7b3364ffed',
+    msg: 'thank you for backing me up',
+    unit: 'VET',
+    amount: 200
 }
 ```
 
