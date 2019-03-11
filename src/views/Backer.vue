@@ -251,8 +251,8 @@ export default class Backer extends Vue {
     }
     .coffee-box {
         margin: auto;
-        width: 110px;
-        height: 110px;
+        width: 105px;
+        height: 105px;
     }
     .coffee-box img{
         height:50px
