@@ -4,9 +4,9 @@
 
 ``` javascript
 {
-    name: 'creator',
+    name: 'Author of BMAC',
     addr: '0x7567d83b7b8d80addcb281a71d54fc7b3364ffed',
-    msg: 'thank you for backing me up',
+    msg: 'If you think me work are awesome, please support me!',
     unit: 'VET',
     amount: 200
 }

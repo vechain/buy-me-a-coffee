@@ -234,7 +234,23 @@ export default class Backer extends Vue {
 
 @media (max-width: 840px){
     .backer{
-        margin-top: 0;
+        margin-top: 20%;
+    }
+    .cup {
+        background: url("../assets/coffee-mini.svg");
+        height: 218px;
+        width: 166px;
+        margin: auto;
+    }
+    .cup .to{
+        top: 65px;
+        left: 15px;
+    }
+
+    .cup .name{
+        top: 70px;
+        left: 15px;
+        width: 128px;
     }
     .message{
         max-width: 600px !important;
