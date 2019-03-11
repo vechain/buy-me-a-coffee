@@ -10,5 +10,11 @@ module.exports = {
                 encoding: 'base64',
                 noquotes: true
             })
+    },
+    pwa: {
+        workboxOptions: {
+            skipWaiting: true,
+            clientsClaim: true
+        }
     }
 }
