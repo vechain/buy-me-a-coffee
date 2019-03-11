@@ -9,7 +9,6 @@
                             <p class="name">{{name}}</p>
                         </div>
                     </div>
-                    
                     <div class="column col-8 col-md-12 main">
                         <div class="columns">
                             <div class="column col-12 quote">
@@ -235,7 +234,7 @@ export default class Backer extends Vue {
 
 @media (max-width: 840px){
     .backer{
-        margin-top: 20%;
+        margin-top: 10%;
     }
     .cup {
         background: url("../assets/coffee-mini.svg");
@@ -252,6 +251,9 @@ export default class Backer extends Vue {
         top: 70px;
         left: 15px;
         width: 128px;
+    }
+    .main{
+        margin-top: 0%
     }
     .message{
         max-width: 600px !important;
