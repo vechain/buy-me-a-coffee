@@ -1,4 +1,4 @@
-# buy-me-a-coffee
+# Buy Me A Coffee
 
 ## Config Object
 
