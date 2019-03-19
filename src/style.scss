@@ -1,5 +1,23 @@
-// $primary-color: #2e5bec;
-// $dark-color: #3e396b;
 $body-bg: linear-gradient(180deg, rgb(138, 111, 70), rgb(94, 68, 35) 30%, rgb(58, 35, 6)60%, rgb(36, 21, 8)) fixed;
 
 @import "node_modules/spectre.css/src/spectre";
+
+/* gloria-hallelujah-regular - latin */
+@font-face {
+    font-family: 'Gloria Hallelujah';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/gloria-hallelujah-v10-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: local('Gloria Hallelujah'), local('GloriaHallelujah'),
+        url('assets/fonts/gloria-hallelujah-v10-latin-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('assets/fonts/gloria-hallelujah-v10-latin-regular.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('assets/fonts/gloria-hallelujah-v10-latin-regular.woff') format('woff'),
+        /* Modern Browsers */
+        url('assets/fonts/gloria-hallelujah-v10-latin-regular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('assets/fonts/gloria-hallelujah-v10-latin-regular.svg#GloriaHallelujah') format('svg');
+    /* Legacy iOS */
+}

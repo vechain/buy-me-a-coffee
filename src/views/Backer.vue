@@ -11,12 +11,6 @@
                     </div>
                     <div class="column col-8 col-md-12 main">
                         <div class="columns">
-                            <div class="column col-12 quote">
-                                <div>
-                                    <i class="text-light">"</i>
-                                    <i class="text-light">"</i>
-                                </div>
-                            </div>
                             <div class="column col-12 message">
                                 <p class="text-light" :title="message">{{message}}</p>
                             </div>
@@ -131,6 +125,8 @@ export default class Backer extends Vue {
     height: 403px;
     width: 170px;
     margin: auto;
+    font-size: 0.75rem;
+    font-family: "Gloria Hallelujah";
 }
 
 .cup .to{
@@ -153,24 +149,6 @@ export default class Backer extends Vue {
 
 .main {
     margin-top: 8%
-}
-
-.quote div{
-    position: relative;
-    top: 2rem;
-}
-
-.quote i{
-    font-size: 1.5rem;
-}
-
-.quote i:nth-child(1){
-    margin-left: -10px
-}
-
-.quote i:nth-child(2){
-    float: right;
-    margin-right: -8px
 }
 
 .message p{
@@ -258,11 +236,6 @@ export default class Backer extends Vue {
     .message{
         max-width: 600px !important;
         margin: auto;
-    }
-    .quote{
-        max-width: 600px !important;
-        margin: auto;
-        font-size: 1rem
     }
     .coffee-options .columns{
         max-width: 540px;
