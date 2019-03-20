@@ -13,7 +13,7 @@
 ```
 
 ## How
-Build your config object and transform it to url query and append to `https://bmac.vecha.in/backer`, eg. `https://bmac.vecha.in/backer?name=[name]&addr=[address]&msg=[message]&unit=[unit]&amount=[amount]`
+Build your config object and transform it to url query and append to `https://bmac.vecha.in/donate`, eg. `https://bmac.vecha.in/donate?name=[name]&addr=[address]&msg=[message]&unit=[unit]&amount=[amount]`
 
 ## Project setup
 ```
