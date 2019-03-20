@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Backer from './views/Backer.vue'
+import Donate from './views/Donate.vue'
 
 Vue.use(Router)
 
@@ -8,9 +8,12 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      path: '/donate',
+      name: 'Donate',
+      component: Donate,
+    }, {
       path: '/backer',
-      name: 'Backer',
-      component: Backer,
+      redirect: '/donate',
     },
   ],
 })

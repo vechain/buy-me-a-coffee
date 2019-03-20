@@ -1,5 +1,5 @@
 <template>
-  <div class="backer container">
+  <div class="donate container">
         <div class="columns">
             <div class="column col-10 col-mx-auto col-md-11 col-xl-8">
                 <div class="columns">
@@ -61,7 +61,7 @@ import BigNumber from 'bignumber.js'
 
 @Component
 
-export default class Backer extends Vue {
+export default class Donate extends Vue {
 
     name = ''
     address = ''
@@ -115,7 +115,7 @@ export default class Backer extends Vue {
 }
 </script>
 <style>
-.backer{
+.donate{
     margin-top: 10%;
     max-width: 1100px;
 }
@@ -211,7 +211,7 @@ export default class Backer extends Vue {
 }
 
 @media (max-width: 840px){
-    .backer{
+    .donate{
         margin-top: 10%;
     }
     .cup {
