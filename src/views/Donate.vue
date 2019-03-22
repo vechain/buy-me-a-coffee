@@ -55,6 +55,7 @@ import BigNumber from 'bignumber.js'
 export default class Donate extends Vue {
     address = ''
     message = ''
+    name = ''
     unit = ''
     amount = 0
     selected = 0
@@ -62,16 +63,17 @@ export default class Donate extends Vue {
 
     created() {
         try {
-            // ensure((typeof this.$route.query.name === 'string') && this.$route.query.name.length > 0, 'validate  name faled')
-            // ensure((typeof this.$route.query.addr === 'string') && isAddress(this.$route.query.addr), 'validate address failed')
-            // ensure((typeof this.$route.query.msg === 'string') && this.$route.query.msg.length > 1, 'validate message failed')
-            // ensure((typeof this.$route.query.unit === 'string') && this.$route.query.unit.length > 0, 'validate unit failed')
-            // ensure((typeof this.$route.query.amount === 'string') && this.$route.query.amount.length > 0, 'validate amount failed')
+            ensure((typeof this.$route.query.name === 'string') && this.$route.query.name.length > 0, 'validate  name faled')
+            ensure((typeof this.$route.query.addr === 'string') && isAddress(this.$route.query.addr), 'validate address failed')
+            ensure((typeof this.$route.query.msg === 'string') && this.$route.query.msg.length > 1, 'validate message failed')
+            ensure((typeof this.$route.query.unit === 'string') && this.$route.query.unit.length > 0, 'validate unit failed')
+            ensure((typeof this.$route.query.amount === 'string') && this.$route.query.amount.length > 0, 'validate amount failed')
             this.address = this.$route.query.addr as string
             this.message = this.$route.query.msg as string
-            this.unit = this.$route.query.unit as string
+            this.unit = 'VET' // this.$route.query.unit as string
+            this.name = this.$route.query.name as string
             const amount = parseInt(this.$route.query.amount as string, 10)
-            // ensure(!isNaN(amount), 'amount should be an valid number')
+            ensure(!isNaN(amount), 'amount should be an valid number')
             this.amount = parseInt(this.$route.query.amount as string, 10)
             this.supportEnabled = true
         } catch (e) {
@@ -94,7 +96,7 @@ export default class Donate extends Vue {
             value: '0x' + new BigNumber(this.amount * (this.selected + 1)).multipliedBy(1e18).dp(0).toString(16),
             data: '0x',
         }]).then((ret) => {
-            console.log(ret)
+            this.$router.push({name: 'thanks'})
         }).catch((e) => {
             console.error(e)
         })
