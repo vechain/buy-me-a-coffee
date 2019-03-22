@@ -95,6 +95,10 @@ export default class Generate extends Vue {
     amount = ''
     message = ''
 
+    created() {
+        this.$ga.page('/bmac/generate')
+    }
+
     check(ref: string) {
         const ele = this.$refs[ref] as HTMLInputElement
         if (!ele.checkValidity()) {

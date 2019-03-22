@@ -4,7 +4,11 @@
             <h2 class="text-light text-center" style="font-size: 2.3rem">Thanks for supporting</h2>
         </div>
         <div class="column col-12 button">
-            <div class="btn-support text-center text-dark" style="font-size: 0.7rem; line-height: 2rem" @click="supportMore">Buy me more</div>
+            <div
+                class="btn-support text-center text-dark"
+                style="font-size: 0.7rem; line-height: 2rem"
+                @click="supportMore"
+            >Buy me more</div>
             <div class="text-center text-light">interested to bmac?
                 <router-link
                     class="text-light"
@@ -19,9 +23,12 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 @Component
 export default class Thanks extends Vue {
-  supportMore() {
-    this.$router.push({name: 'Donate'})
-  }
+    created() {
+        this.$ga.page('/bmac/thanks')
+    }
+    supportMore() {
+        this.$router.push({ name: 'Donate' })
+    }
 }
 </script>
 
