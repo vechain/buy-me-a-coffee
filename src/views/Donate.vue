@@ -62,6 +62,7 @@ export default class Donate extends Vue {
     supportEnabled = false
 
     created() {
+        this.$ga.page('/bmac/donate')
         try {
             ensure((typeof this.$route.query.name === 'string') && this.$route.query.name.length > 0, 'validate  name faled')
             ensure((typeof this.$route.query.addr === 'string') && isAddress(this.$route.query.addr), 'validate address failed')
