@@ -49,7 +49,6 @@
         <div class="form-group column col-12">
             <label class="form-label" for="message">Message to supporter</label>
             <textarea
-                class="g-font"
                 ref="message"
                 required
                 v-model="message"
@@ -61,7 +60,14 @@
             ></textarea>
             <div class="text-light text-right" style="font-size: 0.6rem">{{message.length}}/100</div>
         </div>
-        <div class="form-group column col-12">
+        <div class="form-group column col-12 g-font">
+            <div
+                class="btn-support text-dark"
+                style="font-size: 0.7rem; line-height: 2rem; width: 250px"
+                @click="createUrl"
+            >Generate & Copy</div>
+        </div>
+        <div v-show="showUrl" class="form-group column col-12">
             <label class="form-label" for="generatedUrl">Url</label>
             <textarea
                 v-model="generatedUrl"
@@ -73,13 +79,6 @@
                 readonly
             ></textarea>
         </div>
-        <div class="form-group column col-12 g-font">
-            <div
-                class="btn-support text-dark"
-                style="font-size: 0.7rem; line-height: 2rem; width: 250px"
-                @click="createUrl"
-            >Generate & Copy</div>
-        </div>
     </div>
 </template>
 
@@ -89,6 +88,7 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class Generate extends Vue {
     show = false
+    showUrl = false
     generatedUrl = ''
     name = ''
     address = ''
@@ -116,26 +116,22 @@ export default class Generate extends Vue {
                 item.parentElement!.classList.remove('error')
             }
         })
-
-        console.log(elems)
         return !elems.some((item) => {
             return item.validity.valid === false
         })
     }
     async createUrl() {
-        console.log(this.validate())
         if (!this.validate()) {
-            console.log(123)
             return
         }
-        const query = `name=${this.name}&address=${this.address}&amount=${this.amount}&msg=${this.message}`
+        const query = `name=${this.name}&addr=${this.address}&amount=${this.amount}&msg=${this.message}`
         this.generatedUrl = encodeURI(window.location.origin + `/donate?${query}`)
+        this.showUrl = true
         await this.$nextTick()
         const urlEle = this.$refs.url as HTMLInputElement
         urlEle.select()
         document.execCommand('copy')
         this.show = true
-
         setTimeout(() => {
             this.show = false
         }, 3000)
