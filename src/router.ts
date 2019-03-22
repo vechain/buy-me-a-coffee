@@ -19,7 +19,7 @@ export default new Router({
       name: 'Donate',
       component: Donate,
       beforeEnter(to: Route, from: Route, next: (val?: any) => void) {
-        if (!to.query.address) {
+        if (!to.query.addr) {
           next({ name: 'Generate' })
         } else {
           next()
