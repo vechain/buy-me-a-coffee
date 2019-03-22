@@ -97,7 +97,7 @@ export default class Donate extends Vue {
             value: '0x' + new BigNumber(this.amount * (this.selected + 1)).multipliedBy(1e18).dp(0).toString(16),
             data: '0x',
         }]).then((ret) => {
-            this.$router.push({name: 'thanks'})
+            this.$router.push({name: 'Thanks'})
         }).catch((e) => {
             console.error(e)
         })
