@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import './components'
 import './registerServiceWorker'
 import './style.scss'
 import VueAnalytics from 'vue-analytics'
