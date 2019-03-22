@@ -66,7 +66,7 @@ export default class Donate extends Vue {
             ensure((typeof this.$route.query.name === 'string') && this.$route.query.name.length > 0, 'validate  name faled')
             ensure((typeof this.$route.query.addr === 'string') && isAddress(this.$route.query.addr), 'validate address failed')
             ensure((typeof this.$route.query.msg === 'string') && this.$route.query.msg.length > 1, 'validate message failed')
-            ensure((typeof this.$route.query.unit === 'string') && this.$route.query.unit.length > 0, 'validate unit failed')
+            // ensure((typeof this.$route.query.unit === 'string') && this.$route.query.unit.length > 0, 'validate unit failed')
             ensure((typeof this.$route.query.amount === 'string') && this.$route.query.amount.length > 0, 'validate amount failed')
             this.address = this.$route.query.addr as string
             this.message = this.$route.query.msg as string
