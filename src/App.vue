@@ -33,9 +33,6 @@ export default class App extends Vue {
             case 'Donate':
                 this.name = this.$route.query.name as string || 'Author'
                 break
-            case 'Thanks':
-                this.name = 'A byte a head'
-                break
             default:
                 break
         }
