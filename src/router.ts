@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Donate from './views/Donate.vue'
 import Generate from './views/Generate.vue'
-import Thanks from './views/Thanks.vue'
 import { Route } from 'vue-router'
 Vue.use(Router)
 
@@ -12,7 +11,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      redirect: 'Generate',
+      redirect: { name: 'Generate' },
     },
     {
       path: '/donate',
@@ -30,11 +29,6 @@ export default new Router({
       path: '/generate',
       name: 'Generate',
       component: Generate,
-    },
-    {
-      path: '/thanks',
-      name: 'Thanks',
-      component: Thanks,
     },
   ],
 })
