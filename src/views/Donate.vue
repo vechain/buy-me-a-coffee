@@ -1,46 +1,81 @@
 <template>
-    <div class="columns g-font">
-        <div class="column col-12 message">
-            <p class="text-light" :title="message">{{message}}</p>
-        </div>
-        <div class="column col-12 coffee-options">
-            <div class="columns">
-                <div class="column col-4">
-                    <div class="coffee-box" :class="{selected: selected == 0}" @click="selected=0">
-                        <div class="coffee">
-                            <img src="../assets/1.svg" alt="buy 1 coffee">
-                            <p class="text-light">{{amount}} {{unit}}</p>
+    <div class="columns g-font" :style="styleS">
+        <template v-if="!isThanks">
+            <div class="column col-12 message">
+                <p class="text-light" :title="message">{{message}}</p>
+            </div>
+            <div class="column col-12 coffee-options">
+                <div class="columns">
+                    <div class="column col-4">
+                        <div
+                            class="coffee-box"
+                            :class="{selected: selected == 0}"
+                            @click="selected=0"
+                        >
+                            <div class="coffee">
+                                <img src="../assets/1.svg" alt="buy 1 coffee">
+                                <p class="text-light">{{amount}} {{unit}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="column col-4">
-                    <div class="coffee-box" :class="{selected: selected == 1}" @click="selected=1">
-                        <div class="coffee">
-                            <img src="../assets/2.svg" alt="buy 1 coffee">
-                            <p class="text-light">{{amount*2}} {{unit}}</p>
+                    <div class="column col-4">
+                        <div
+                            class="coffee-box"
+                            :class="{selected: selected == 1}"
+                            @click="selected=1"
+                        >
+                            <div class="coffee">
+                                <img src="../assets/2.svg" alt="buy 1 coffee">
+                                <p class="text-light">{{amount*2}} {{unit}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="column col-4">
-                    <div class="coffee-box" :class="{selected: selected == 2}" @click="selected=2">
-                        <div class="coffee">
-                            <img src="../assets/3.svg" alt="buy 1 coffee">
-                            <p class="text-light">{{amount*3}} {{unit}}</p>
+                    <div class="column col-4">
+                        <div
+                            class="coffee-box"
+                            :class="{selected: selected == 2}"
+                            @click="selected=2"
+                        >
+                            <div class="coffee">
+                                <img src="../assets/3.svg" alt="buy 1 coffee">
+                                <p class="text-light">{{amount*3}} {{unit}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="column col-12 button">
-            <div class="btn-support text-dark" @click="supportMe">Support</div>
-            <div class="text-center text-light">interested to bmac?
-                <router-link
-                    class="text-light"
-                    style="text-decoration: underline;"
-                    :to="{name: 'Generate'}"
-                >create one</router-link>
+            <div class="column col-12 button">
+                <div class="btn-support text-dark" @click="supportMe">Support</div>
+                <div class="text-center text-light">
+                    interested to bmac?
+                    <router-link
+                        class="text-light"
+                        style="text-decoration: underline;"
+                        :to="{name: 'Generate'}"
+                    >create one</router-link>
+                </div>
             </div>
-        </div>
+        </template>
+        <template v-if="isThanks">
+            <div class="column col-12">
+                <h2 class="text-light text-center" style="font-size: 2.3rem">Thanks for supporting</h2>
+            </div>
+            <div class="column col-12 button">
+                <div
+                    class="btn-support text-center text-dark"
+                    style="font-size: 0.7rem; line-height: 2rem"
+                    @click="isThanks = false"
+                >Buy me more</div>
+                <div class="text-center text-light">
+                    interested to bmac?
+                    <router-link
+                        class="text-light"
+                        style="text-decoration: underline;"
+                        :to="{name: 'Generate'}"
+                    >create one</router-link>
+                </div>
+            </div>
+        </template>
     </div>
 </template>
 
@@ -60,13 +95,18 @@ export default class Donate extends Vue {
     amount = 0
     selected = 0
     supportEnabled = false
+    isThanks = false
+
+    get styleS() {
+        return this.isThanks ? { 'margin-top': '25%' } : ''
+    }
 
     created() {
         this.$ga.page('/bmac/donate')
         try {
             ensure((typeof this.$route.query.name === 'string') && this.$route.query.name.length > 0, 'validate  name faled')
             ensure((typeof this.$route.query.addr === 'string') && isAddress(this.$route.query.addr), 'validate address failed')
-            ensure((typeof this.$route.query.msg === 'string') && this.$route.query.msg.length > 1, 'validate message failed')
+            ensure((typeof this.$route.query.msg === 'string') && this.$route.query.msg.length > 0, 'validate message failed')
             // ensure((typeof this.$route.query.unit === 'string') && this.$route.query.unit.length > 0, 'validate unit failed')
             ensure((typeof this.$route.query.amount === 'string') && this.$route.query.amount.length > 0, 'validate amount failed')
             this.address = this.$route.query.addr as string
@@ -97,7 +137,8 @@ export default class Donate extends Vue {
             value: '0x' + new BigNumber(this.amount * (this.selected + 1)).multipliedBy(1e18).dp(0).toString(16),
             data: '0x',
         }]).then((ret) => {
-            this.$router.push({name: 'Thanks'})
+            this.isThanks = true
+            // this.$router.push({ name: 'Thanks' })
         }).catch((e) => {
             console.error(e)
         })
