@@ -69,6 +69,7 @@
         </div>
         <div v-show="showUrl" class="form-group column col-12">
             <label class="form-label" for="generatedUrl">Url</label>
+            <a :href="generatedUrl" class="text-light" style="float: right; margin-top: -30px; text-decoration: underline;" target="_blank">Preview</a>
             <textarea
                 v-model="generatedUrl"
                 maxlength="100"
