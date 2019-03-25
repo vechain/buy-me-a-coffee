@@ -1,44 +1,15 @@
 # Buy Me A Coffee
 
-## Config Object
+![screenshot](./screenshot.png)
 
-``` javascript
-{
-    name: 'Author of BMAC',
-    addr: '0x7567d83b7b8d80addcb281a71d54fc7b3364ffed',
-    msg: 'If you think me work are awesome, please support me!',
-    unit: 'VET',
-    amount: 200
-}
-```
+## Generate One For You
 
-## How
-Build your config object and transform it to url query and append to `https://bmac.vecha.in/donate`, eg. `https://bmac.vecha.in/donate?name=[name]&addr=[address]&msg=[message]&unit=[unit]&amount=[amount]`
+*[https://bmac.vecha.in/generate](https://bmac.vecha.in/generate)*
 
-## Project setup
-```
-npm install
-```
+## Development
 
-### Compiles and hot-reloads for development
+``` bash
+npm install     #Install dependencies
+npm run serve   #Compiles and hot-reloads for development
+npm run build   #Compiles and minifies for production
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
