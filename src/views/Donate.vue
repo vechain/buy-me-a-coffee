@@ -67,12 +67,12 @@
                     @click="isThanks = false"
                 >Buy me more</div>
                 <div class="text-center text-light">
-                    interested to bmac?
+                    Interested to bmac?
                     <router-link
                         class="text-light"
                         style="text-decoration: underline;"
                         :to="{name: 'Generate'}"
-                    >create one</router-link>
+                    >Create one</router-link>
                 </div>
             </div>
         </template>
@@ -138,11 +138,9 @@ export default class Donate extends Vue {
             data: '0x',
         }]).then((ret) => {
             this.isThanks = true
-            // this.$router.push({ name: 'Thanks' })
         }).catch((e) => {
             console.error(e)
         })
     }
-
 }
 </script>
