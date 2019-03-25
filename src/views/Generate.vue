@@ -41,7 +41,7 @@
                 autocomplete="off"
                 type="text"
                 id="Amount"
-                pattern="^-?[0-9]+$"
+                pattern="^[0-9]+$"
                 placeholder="Amount Per Cup"
                 @change="check('amount')"
             >
@@ -173,6 +173,7 @@ export default class Generate extends Vue {
     width: 300px !important;
     position: fixed;
     top: 50px;
+    opacity: 1 !important;
 }
 .form-group.error .form-input:not(:placeholder-shown):invalid:focus,
 .form-input:not(:placeholder-shown):invalid:focus {
