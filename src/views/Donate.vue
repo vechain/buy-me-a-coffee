@@ -47,12 +47,12 @@
             <div class="column col-12 button">
                 <div class="btn-support text-dark" @click="supportMe">Support</div>
                 <div class="text-center text-light">
-                    interested to bmac?
+                    Interested to BMAC?
                     <router-link
                         class="text-light"
                         style="text-decoration: underline;"
                         :to="{name: 'Generate'}"
-                    >create one</router-link>
+                    >Create One</router-link>
                 </div>
             </div>
         </template>
