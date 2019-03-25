@@ -6,8 +6,8 @@ cache:
     "node_modules"
 script:
   - npm run build
-  - cp dist/index.html dist/backer.html
   - cp dist/index.html dist/donate.html
+  - cp dist/index.html dist/generate.html
 deploy:
   provider: pages
   skip_cleanup: true
