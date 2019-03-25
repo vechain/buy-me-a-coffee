@@ -1,6 +1,6 @@
 <template>
     <div class="generate">
-        <div class="toast-tip toast toast-success" v-if="true">Copied to clipboard</div>
+        <div class="toast-tip toast toast-success" v-if="show">Copied to clipboard</div>
         <div class="form-group column col-12">
             <label class="form-label" for="name">Your name</label>
             <input
@@ -173,7 +173,8 @@ export default class Generate extends Vue {
     width: 300px !important;
     position: fixed;
     top: 50px;
-    background-color: rgba(50, 182, 67, 1) !important;
+    background: rgba(50, 182, 67, 1) !important;
+    z-index: 11;
 }
 .form-group.error .form-input:not(:placeholder-shown):invalid:focus,
 .form-input:not(:placeholder-shown):invalid:focus {
