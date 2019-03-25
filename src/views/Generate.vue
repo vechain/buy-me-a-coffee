@@ -49,7 +49,9 @@
         <div class="form-group column col-12">
             <label class="form-label" for="message">Message to supporter</label>
             <textarea
+                class="form-input"
                 ref="message"
+                placeholder="..."
                 required
                 v-model="message"
                 maxlength="100"
@@ -72,7 +74,6 @@
             <a :href="generatedUrl" class="text-light" style="float: right; margin-top: -30px; text-decoration: underline;" target="_blank">Preview</a>
             <textarea
                 v-model="generatedUrl"
-                maxlength="100"
                 ref="url"
                 autocomplete="off"
                 id="generatedUrl"
@@ -162,6 +163,7 @@ export default class Generate extends Vue {
     border-bottom: 1px solid #949494;
     resize: none;
 }
+.generate textarea:focus,
 .generate textarea {
     font-size: 0.7rem;
     width: 100%;
