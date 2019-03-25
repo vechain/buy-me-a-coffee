@@ -11,8 +11,8 @@
                 autocomplete="off"
                 type="text"
                 id="name"
-                maxlength="30"
-                placeholder="..."
+                maxlength="20"
+                placeholder="Maximum 20 Charaters"
                 @change="check('name')"
             >
         </div>
@@ -27,12 +27,12 @@
                 type="text"
                 id="address"
                 pattern="^0x[a-fA-F0-9]{40}$"
-                placeholder="..."
+                placeholder="Start with 0x"
                 @change="check('address')"
             >
         </div>
         <div class="form-group column col-12">
-            <label class="form-label" for="Amount">Amount(VET/Cup)</label>
+            <label class="form-label" for="Amount">Amount</label>
             <input
                 class="form-input"
                 required
@@ -42,16 +42,16 @@
                 type="text"
                 id="Amount"
                 pattern="^-?[0-9]+$"
-                placeholder="..."
+                placeholder="Amount Per Cup"
                 @change="check('amount')"
             >
         </div>
         <div class="form-group column col-12">
-            <label class="form-label" for="message">Message to supporter</label>
+            <label class="form-label" for="message">Message to supporters</label>
             <textarea
                 class="form-input"
                 ref="message"
-                placeholder="..."
+                placeholder="E.g. Sometimes the simplest things mean the most"
                 required
                 v-model="message"
                 maxlength="100"
@@ -180,10 +180,10 @@ export default class Generate extends Vue {
 }
 
 .form-group.error .form-input {
-    background-color: coral;
+    border : 1px solid red;
 }
 .form-input:not(:placeholder-shown):invalid {
-    background-color: coral !important;
+    border : 1px solid red !important;
 }
 .form-input:not(:placeholder-shown):valid {
     background-color: transparent !important;
