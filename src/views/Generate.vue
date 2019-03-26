@@ -71,7 +71,12 @@
         </div>
         <div v-show="showUrl" class="form-group column col-12">
             <label class="form-label" for="generatedUrl">Url</label>
-            <a :href="generatedUrl" class="text-light" style="float: right; margin-top: -30px; text-decoration: underline;" target="_blank">Preview</a>
+            <a
+                :href="generatedUrl"
+                class="text-light"
+                style="float: right; margin-top: -30px; text-decoration: underline;"
+                target="_blank"
+            >Preview</a>
             <textarea
                 v-model="generatedUrl"
                 ref="url"
@@ -172,6 +177,7 @@ export default class Generate extends Vue {
 .toast-tip {
     width: 300px !important;
     position: fixed;
+    left: calc(50% - 150px);
     top: 50px;
     background: rgba(50, 182, 67, 1) !important;
     z-index: 11;
@@ -182,10 +188,10 @@ export default class Generate extends Vue {
 }
 
 .form-group.error .form-input {
-    border : 1px solid red;
+    border: 1px solid red;
 }
 .form-input:not(:placeholder-shown):invalid {
-    border : 1px solid red !important;
+    border: 1px solid red !important;
 }
 .form-input:not(:placeholder-shown):valid {
     background-color: transparent !important;
