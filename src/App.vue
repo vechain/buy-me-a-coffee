@@ -89,7 +89,6 @@ export default class App extends Vue {
 .message p {
     font-size: 1.5rem;
     margin: 1rem auto 1.5rem auto;
-    line-height: 1.25;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
